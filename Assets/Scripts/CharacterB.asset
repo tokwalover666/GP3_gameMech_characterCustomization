@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d09876dbda31eb4fb1e77798c93dade, type: 3}
+  m_Name: CharacterB
+  m_EditorClassIdentifier: 
+  Hairs_A:
+  - {fileID: 6941879718741149098, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  - {fileID: -8779253226337595536, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  Faces_A:
+  - {fileID: -7220142955598150413, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  - {fileID: -2876961878556500553, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  - {fileID: -2951435928273217148, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  Tops_A:
+  - {fileID: 2327178887924162183, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  - {fileID: -7197232063889311409, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  Pants_A:
+  - {fileID: -7285282536115141075, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  - {fileID: -4501170916432578897, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  Shoes_A:
+  - {fileID: 4727998436644598288, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  - {fileID: 3249288444124866718, guid: 7c00b1e95e1241d4289c84ba97c9c540, type: 3}
+  ShoeMaterials_A:
+  - {fileID: 2100000, guid: bd573275dd8bad645a0ee09b9701a9d1, type: 2}
+  - {fileID: 2100000, guid: 541590bab6cb20b42920322e136ee608, type: 2}
+  Hairs:
+  - {fileID: 4902568719681768088, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  - {fileID: -8961944308516074971, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  Faces:
+  - {fileID: 5428104594370556915, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  - {fileID: -6066092485470860707, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  - {fileID: -5622240740159814323, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  Tops:
+  - {fileID: 4950146913976039849, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  - {fileID: 8330675330259904239, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  Pants:
+  - {fileID: -3779739375796136426, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  - {fileID: -6740394261286458596, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  - {fileID: 8756578002976325169, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  Shoes:
+  - {fileID: -8521140103810069898, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  - {fileID: -6613882018878697678, guid: 5292d7869f4240e4c943ca77eb91c863, type: 3}
+  TopMaterials:
+  - {fileID: 2100000, guid: 70ad04791def2624a8f295bb59d67709, type: 2}
+  - {fileID: 2100000, guid: caadd21cb9d28de4e86c0b73f8165e8b, type: 2}
+  PantMaterials:
+  - {fileID: 2100000, guid: 418d8d1bb71f914498f3c92a16513780, type: 2}
+  - {fileID: 2100000, guid: 2da965008ce3843498ae2cf5d8b63380, type: 2}
+  - {fileID: 2100000, guid: aebe6c118f3ea31428a4b443d28724e5, type: 2}
+  ShoeMaterials:
+  - {fileID: 2100000, guid: fe23230565ba2f64aa19bdb5f0dbb752, type: 2}
+  - {fileID: 2100000, guid: 54c5c1e625018f9418e2b27227cdd869, type: 2}

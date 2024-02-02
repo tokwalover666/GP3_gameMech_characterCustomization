@@ -1,9 +1,69 @@
 fileFormatVersion: 2
-guid: 3330bed1dbe26784fb48f0e4d98dc878
+guid: 7c00b1e95e1241d4289c84ba97c9c540
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blackHair
+    second: {fileID: 2100000, guid: 437a4c04affe4fe4f87ddd408ffaded0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye
+    second: {fileID: 2100000, guid: 46d10a31a202979459a42516d08a1c1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pants1
+    second: {fileID: 2100000, guid: 38f5be00e32630b48819ca8e969a3490, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt1
+    second: {fileID: 2100000, guid: 2be5a261faefeac4f8321b0f634a0798, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt2
+    second: {fileID: 2100000, guid: 93371e66398cd134b956000e78c59fbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt3
+    second: {fileID: 2100000, guid: b395755e80c5a89489a4648a9f1b68d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes1
+    second: {fileID: 2100000, guid: bd573275dd8bad645a0ee09b9701a9d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes2
+    second: {fileID: 2100000, guid: 541590bab6cb20b42920322e136ee608, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skin
+    second: {fileID: 2100000, guid: 4780d804f5ca18941bf3cf30ca4fbcae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skirt1
+    second: {fileID: 2100000, guid: b47bd53145f50cb4fbc30a1219076c38, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skirt2
+    second: {fileID: 2100000, guid: 8720b0af288bde3419e94dff456ea7d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skirt3
+    second: {fileID: 2100000, guid: b9b18510abec23243899855cb8cccd48, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
