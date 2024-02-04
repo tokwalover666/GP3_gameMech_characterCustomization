@@ -23,7 +23,7 @@ public class UiButton : MonoBehaviour
     [SerializeField] private Button changeShoes;
 
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private CameraManager cameraManager;
+
 
     private void Start()
     {

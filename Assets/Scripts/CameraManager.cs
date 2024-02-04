@@ -6,14 +6,14 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CameraManager : MonoBehaviour
 {
-    public Transform OrigPos;
+    public Transform cam;
     public Transform TargetB;
     public Transform RotateB;
     public Transform TargetA;
     public Transform RotateA;
 
-    public float rotateSpeed;
-    public float smoothSpeed = 2f;
+    public float rotateSpeed = 1f;
+    public float speed = 1f;
 
     public GameObject buttonB;
     public GameObject buttonA;
@@ -23,6 +23,12 @@ public class CameraManager : MonoBehaviour
     public GameObject nametagLeo;
     public GameObject leo;
     public GameObject rei;
+
+    public bool chooseleo = false;
+    public bool chooserei = false;
+    public bool switchleo = false;
+    public bool switchrei = false;
+    public bool boolReset = false;
 
     void Start()
     {
@@ -34,7 +40,7 @@ public class CameraManager : MonoBehaviour
         nametagLeo.SetActive(true);
         leo.SetActive(false);
         rei.SetActive(false);
-        
+
 
 
     }
@@ -42,8 +48,50 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (chooseleo == true)
+        {
+            
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, TargetB.position, speed * Time.deltaTime);
 
-        
+            Vector3 direction = RotateB.position - cam.transform.position;
+            Quaternion rotatToB = Quaternion.LookRotation(direction);
+            cam.transform.rotation = rotatToB;
+
+
+        }
+        if (chooserei == true)
+        {
+            
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, TargetA.position, speed * Time.deltaTime);
+
+            Vector3 direction = RotateA.position - cam.transform.position;
+            Quaternion rotateToA = Quaternion.LookRotation(direction);
+            cam.transform.rotation = rotateToA;
+
+
+        }
+        if (switchleo == true)
+        {
+            
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, TargetB.position, speed * Time.deltaTime);
+
+            Vector3 direction = RotateB.position - cam.transform.position;
+            Quaternion rotateToB = Quaternion.LookRotation(direction);
+            cam.transform.rotation = rotateToB;
+
+        }
+        if (switchrei == true)
+        {
+            
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, TargetA.position, speed * Time.deltaTime);
+
+            Vector3 direction = RotateA.position - cam.transform.position;
+            Quaternion rotateToA = Quaternion.LookRotation(direction);
+            cam.transform.rotation = rotateToA;
+
+        }
+
+
     }
     public void ChooseLeo()
     {
@@ -54,13 +102,7 @@ public class CameraManager : MonoBehaviour
         nametagLeo.SetActive(false) ;
         leo.SetActive(true);
 
-        transform.position = Vector3.Lerp(transform.position, TargetB.position, smoothSpeed * Time.deltaTime);
-
-        // Smoothly rotate towards RotateA
-        Vector3 direction = RotateA.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, smoothSpeed * Time.deltaTime);
-
+        chooseleo = true;
     }
 
     public void ChooseRei()
@@ -72,8 +114,7 @@ public class CameraManager : MonoBehaviour
         nametagLeo.SetActive(false);
         rei.SetActive(true);
 
-        Vector3 smoothedPosition = Vector3.Lerp(OrigPos.position, TargetA.position, smoothSpeed * Time.deltaTime);
-
+        chooserei = true;
 
     }
     public void SwitchLeo()
@@ -81,15 +122,13 @@ public class CameraManager : MonoBehaviour
         buttonB.SetActive(true);
         buttonA.SetActive(false);
         switchToRei.SetActive(true);
+        switchToLeo.SetActive(false);
         nametagRei.SetActive(false);
         nametagLeo.SetActive(false);
         leo.SetActive(true);
         rei.SetActive(false);
 
-        Vector3 smoothedPosition = Vector3.Lerp(TargetA.position, TargetB.position, smoothSpeed);
-        transform.position = smoothedPosition;
-
-
+        switchleo = true;
     }
 
     public void SwitchRei()
@@ -97,13 +136,13 @@ public class CameraManager : MonoBehaviour
         buttonA.SetActive(true);
         buttonB.SetActive(false);
         switchToLeo.SetActive(true);
+        switchToRei.SetActive(false);
         nametagRei.SetActive(false);
         nametagLeo.SetActive(false);
         rei.SetActive(true);
         leo.SetActive(false);
 
-        Vector3 smoothedPosition = Vector3.Lerp(TargetB.position, TargetA.position, smoothSpeed * Time.deltaTime);
-
-
+        switchrei = true;
     }
+
 }
