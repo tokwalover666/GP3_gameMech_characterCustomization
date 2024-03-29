@@ -1,16 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class CameraManager : MonoBehaviour
 {
     public Transform cam;
-    public Transform TargetB;
-    public Transform RotateB;
-    public Transform TargetA;
-    public Transform RotateA;
+    public Transform targetB;
+    public Transform rotateB;
+    public Transform targetA;
+    public Transform rotateA;
 
     public float rotateSpeed = 1f;
     public float speed = 1f;
@@ -23,14 +19,38 @@ public class CameraManager : MonoBehaviour
     public GameObject nametagLeo;
     public GameObject leo;
     public GameObject rei;
+    public GameObject backButton;
 
-    public bool chooseleo = false;
-    public bool chooserei = false;
-    public bool switchleo = false;
-    public bool switchrei = false;
-    public bool boolReset = false;
+    private bool chooseLeo = false;
+    private bool chooseRei = false;
+    private bool switchLeo = false;
+    private bool switchRei = false;
 
-    void Start()
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+    private void Start()
+    {
+        backButton.SetActive(false);
+        originalPosition = cam.position;
+        originalRotation = cam.rotation;
+
+        InitializeUI();
+    }
+
+    public void OnBackButtonClick()
+    {
+        ResetCamera();
+        backButton.SetActive(false);
+    }
+    public void ResetCamera()
+    {
+        cam.position = originalPosition;
+        cam.rotation = originalRotation;
+
+        InitializeUI();
+    }
+
+    private void InitializeUI()
     {
         buttonA.SetActive(false);
         buttonB.SetActive(false);
@@ -40,84 +60,62 @@ public class CameraManager : MonoBehaviour
         nametagLeo.SetActive(true);
         leo.SetActive(false);
         rei.SetActive(false);
-
-
-
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (chooseleo == true)
-        {
-            
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, TargetB.position, speed * Time.deltaTime);
+        if (chooseLeo)
+            MoveCamera(targetB, rotateB, ref chooseLeo);
 
-            Vector3 direction = RotateB.position - cam.transform.position;
-            Quaternion rotatToB = Quaternion.LookRotation(direction);
-            cam.transform.rotation = rotatToB;
+        if (chooseRei)
+            MoveCamera(targetA, rotateA, ref chooseRei);
 
+        if (switchLeo)
+            MoveCamera(targetB, rotateB, ref switchLeo);
 
-        }
-        if (chooserei == true)
-        {
-            
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, TargetA.position, speed * Time.deltaTime);
-
-            Vector3 direction = RotateA.position - cam.transform.position;
-            Quaternion rotateToA = Quaternion.LookRotation(direction);
-            cam.transform.rotation = rotateToA;
-
-
-        }
-        if (switchleo == true)
-        {
-            
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, TargetB.position, speed * Time.deltaTime);
-
-            Vector3 direction = RotateB.position - cam.transform.position;
-            Quaternion rotateToB = Quaternion.LookRotation(direction);
-            cam.transform.rotation = rotateToB;
-
-        }
-        if (switchrei == true)
-        {
-            
-            cam.transform.position = Vector3.MoveTowards(cam.transform.position, TargetA.position, speed * Time.deltaTime);
-
-            Vector3 direction = RotateA.position - cam.transform.position;
-            Quaternion rotateToA = Quaternion.LookRotation(direction);
-            cam.transform.rotation = rotateToA;
-
-        }
-
-
+        if (switchRei)
+            MoveCamera(targetA, rotateA, ref switchRei);
     }
+
+    private void MoveCamera(Transform target, Transform rotateTarget, ref bool flag)
+    {
+        cam.position = Vector3.MoveTowards(cam.position, target.position, speed * Time.deltaTime);
+
+        if (cam.position == target.position)
+        {
+            flag = false;
+        }
+
+        Vector3 direction = rotateTarget.position - cam.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        cam.rotation = rotation;
+    }
+
     public void ChooseLeo()
     {
-        buttonB.SetActive(true);
-        buttonA.SetActive(false);
-        switchToRei.SetActive(true);
-        nametagRei.SetActive(false);
-        nametagLeo.SetActive(false) ;
-        leo.SetActive(true);
-
-        chooseleo = true;
+        SetUIForLeo();
+        chooseLeo = true;
     }
 
     public void ChooseRei()
     {
-        buttonA.SetActive(true);
-        buttonB.SetActive(false);
-        switchToLeo.SetActive(true);
-        nametagRei.SetActive(false);
-        nametagLeo.SetActive(false);
-        rei.SetActive(true);
-
-        chooserei = true;
-
+        SetUIForRei();
+        chooseRei = true;
     }
+
     public void SwitchLeo()
+    {
+        SetUIForLeo();
+        switchLeo = true;
+    }
+
+    public void SwitchRei()
+    {
+        SetUIForRei();
+        switchRei = true;
+    }
+
+    private void SetUIForLeo()
     {
         buttonB.SetActive(true);
         buttonA.SetActive(false);
@@ -127,11 +125,10 @@ public class CameraManager : MonoBehaviour
         nametagLeo.SetActive(false);
         leo.SetActive(true);
         rei.SetActive(false);
-
-        switchleo = true;
+        backButton.SetActive(true);
     }
 
-    public void SwitchRei()
+    private void SetUIForRei()
     {
         buttonA.SetActive(true);
         buttonB.SetActive(false);
@@ -141,8 +138,6 @@ public class CameraManager : MonoBehaviour
         nametagLeo.SetActive(false);
         rei.SetActive(true);
         leo.SetActive(false);
-
-        switchrei = true;
+        backButton.SetActive(true);
     }
-
 }
